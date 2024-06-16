@@ -15,7 +15,7 @@ const Button: FC<ButtonProps> = ({
     <a
       href={to}
       target={target ?? "_blank"}
-      className={`py-3 px-5 rounded-md transition-all ${variants[variant]}`}
+      className={`py-3 px-5 rounded-md max-w-max transition-all ${variants[variant]}`}
     >
       {children}
     </a>
