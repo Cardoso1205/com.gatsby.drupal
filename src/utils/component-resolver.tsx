@@ -1,5 +1,12 @@
 import React, { FC } from "react";
-import { Hero, Wrapper, Alert, CardGrid } from "../components";
+import {
+  Hero,
+  Wrapper,
+  Alert,
+  CardGrid,
+  PromoCard,
+  PreFooter,
+} from "../components";
 
 const ParagraphHero: FC<any> = ({ entity }) => {
   const fields = entity.fieldInputs.map(({ entity }: any) => {
@@ -44,7 +51,7 @@ const ParagraphAlert: FC<any> = ({ entity }) => {
   );
 };
 
-const ParagraphCardGrid: FC<any> = ({ entity }) => {  
+const ParagraphCardGrid: FC<any> = ({ entity }) => {
   const cards = entity.fieldCards.map(({ entity }: any) => {
     return {
       title: entity.fieldTitle,
@@ -53,13 +60,42 @@ const ParagraphCardGrid: FC<any> = ({ entity }) => {
     };
   });
   return (
-    <Wrapper>
+    <Wrapper key={entity.uuid}>
       <CardGrid
         title={entity.fieldTitle}
         description={entity.fieldDescription}
         variant={entity.fieldCardVariant}
         columns={entity.fieldColumns}
         cards={cards}
+      />
+    </Wrapper>
+  );
+};
+
+const ParagraphPromoCard: FC<any> = ({ entity }) => {
+  return (
+    <Wrapper key={entity.uuid}>
+      <PromoCard
+        title={entity.fieldTitle}
+        image={entity.fieldImage.url}
+        cta={{
+          label: entity.fieldCta.title,
+          to: entity.fieldCta.url.path,
+        }}
+      />
+    </Wrapper>
+  );
+};
+
+const ParagraphPreFooter: FC<any> = ({ entity }) => {
+  return (
+    <Wrapper>
+      <PreFooter
+        title={entity.fieldTitle}
+        cta={{
+          label: entity.fieldCta.title,
+          to: entity.fieldCta.url.path,
+        }}
       />
     </Wrapper>
   );
@@ -72,7 +108,9 @@ export const resolve: FC<any> = (entity) => {
   const componentsMap: any = {
     ParagraphHero,
     ParagraphAlert,
-    ParagraphCardGrid
+    ParagraphCardGrid,
+    ParagraphPromoCard,
+    ParagraphPreFooter
   };
 
   const entityTypeName = entity.__typename?.replace("Drupal_", "");

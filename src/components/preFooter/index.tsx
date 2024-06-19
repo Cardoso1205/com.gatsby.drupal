@@ -3,7 +3,7 @@ import { PreFooterProps } from "../../types";
 
 const PreFooter: FC<PreFooterProps> = ({ title, cta }) => {
   return (
-    <div className="my-6 text-center">
+    <div className="my-24 text-center">
       <h2 className="text-3xl font-medium">{title}</h2>
       {cta?.label && (
         <div className="mt-4">

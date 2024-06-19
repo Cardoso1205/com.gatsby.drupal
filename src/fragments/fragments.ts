@@ -17,6 +17,8 @@ export const Drupal_FieldNodePageFieldComponents = graphql`
       ...ParagraphHero
       ...ParagraphAlert
       ...ParagraphCardGrid
+      ...ParagraphPromoCard
+      ...ParagraphPreFooter
     }
   }
 `;
@@ -98,6 +100,7 @@ export const ParagraphCard = graphql`
 
 export const ParagraphCardGrid = graphql`
   fragment ParagraphCardGrid on Drupal_ParagraphCardGrid {
+    uuid
     fieldTitle
     fieldDescription
     fieldCardVariant
@@ -105,6 +108,36 @@ export const ParagraphCardGrid = graphql`
     fieldCards {
       entity {
         ...ParagraphCard
+      }
+    }
+  }
+`;
+
+export const ParagraphPromoCard = graphql`
+  fragment ParagraphPromoCard on Drupal_ParagraphPromoCard {
+    uuid
+    fieldTitle
+    fieldImage {
+      url
+      alt
+    }
+    fieldCta {
+      title
+      url {
+        path
+      }
+    }
+  }
+`;
+
+export const ParagraphPreFooter = graphql`
+  fragment ParagraphPreFooter on Drupal_ParagraphPreFooter {
+    uuid
+    fieldTitle
+    fieldCta {
+      title
+      url {
+        path
       }
     }
   }
