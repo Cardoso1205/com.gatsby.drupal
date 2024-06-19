@@ -10,7 +10,7 @@ const CardGrid: FC<CardGridProps> = ({
   variant = "general",
 }) => {
   return (
-    <div className="my-6">
+    <div className="my-12">
       <h2 className="text-2xl font-medium mb-4">{title}</h2>
       <p className="mb-7">{description}</p>
       <div className={`grid gap-4 grid-cols-${columns}`}>

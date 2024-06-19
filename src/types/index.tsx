@@ -60,3 +60,14 @@ export interface PreFooterProps {
   title: string
   cta?: Link
 }
+
+export interface Navigation {
+  title: string
+  links: Link[]
+}
+
+export interface FooterProps{
+  title: string
+  description: string
+  navigation: Navigation[]
+}

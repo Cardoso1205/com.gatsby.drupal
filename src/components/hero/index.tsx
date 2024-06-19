@@ -5,7 +5,7 @@ import { HeroProps } from "../../types";
 
 const Hero: FC<HeroProps> = ({ image, title, description, fields, ctas }) => {
   return (
-    <div className="relative">
+    <div className="relative mb-20">
       <div
         style={{ backgroundImage: `url(${image})` }}
         className="h-[500px] rounded-md bg-no-repeat bg-cover bg-center flex flex-col items-center justify-center text-white gap-5 py-6"
