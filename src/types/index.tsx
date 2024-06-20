@@ -70,7 +70,7 @@ export interface Navigation {
 }
 
 export interface FooterProps {
-  title: string;
-  description: string;
-  navigation: Navigation[];
+  sliceContext: {
+    navigation: Navigation[];
+  };
 }

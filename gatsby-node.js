@@ -13,6 +13,21 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        footer: menuByName(name: "footer") {
+          __typename
+          links {
+            label
+            url {
+              path
+            }
+            links {
+              label
+              url {
+                path
+              }
+            }
+          }
+        }
         nodeQuery(
           filter: {
             conditions: [{ operator: EQUAL, field: "type", value: ["page"] }]
@@ -41,13 +56,32 @@ exports.createPages = async ({ graphql, actions }) => {
         };
       }
     );
+    const footerLinks = result.data.drupal.footer.links.map((link) => {
+      return {
+        title: link.label,
+        links: link.links.map((link) => {
+          return {
+            label: link.label,
+            to: link.url.path,
+          };
+        }),
+      };
+    });
 
     actions.createSlice({
       id: "navigation",
       component: path.resolve(`src/components/navbar/index.tsx`),
       context: {
-        links: mainNavigationLinks
-      }
+        links: mainNavigationLinks,
+      },
+    });
+
+    actions.createSlice({
+      id: "footer",
+      component: path.resolve(`src/components/footer/index.tsx`),
+      context: {
+        navigation: footerLinks,
+      },
     });
 
     entities.forEach((entity) => {
