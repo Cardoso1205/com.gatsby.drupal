@@ -1,46 +1,9 @@
 import React, { FC } from "react";
-import { Wrapper, Navbar, Footer } from "../components";
-import { FooterProps, NavbarProps } from "../types";
+import { Slice } from "gatsby";
+import { Wrapper, Footer } from "../components";
+import { FooterProps } from "../types";
 
 const Layout: FC<any> = ({ children }) => {
-  const navProps = {
-    logo: "my Dream Place",
-    links: [
-      {
-        label: "Home",
-        to: "",
-      },
-      {
-        label: "Discover",
-        to: "",
-      },
-      {
-        label: "Activities",
-        to: "",
-      },
-      {
-        label: "About",
-        to: "",
-      },
-      {
-        label: "Contact",
-        to: "",
-      },
-    ],
-    ctas: [
-      {
-        children: "Register",
-        to: "",
-        variant: "secondary",
-      },
-      {
-        children: "Sign In",
-        to: "",
-        variant: "primary",
-      },
-    ],
-  } as NavbarProps;
-
   const footerProps = {
     title: "myDreamPlace",
     description: "Your next goto companion for travel",
@@ -150,7 +113,7 @@ const Layout: FC<any> = ({ children }) => {
 
   return (
     <>
-      <Navbar {...navProps} />
+      <Slice alias="navigation" />
       {children}
       <Wrapper>
         <Footer {...footerProps} />

@@ -5,7 +5,7 @@ export interface ButtonProps {
   variant?: "primary" | "secondary";
 }
 
-interface Link {
+export interface Link {
   label: string;
   to: string;
 }
@@ -14,6 +14,9 @@ export interface NavbarProps {
   logo: string;
   links: Link[];
   ctas: ButtonProps[];
+  sliceContext?: {
+    links: Link[];
+  };
 }
 
 export interface InputProps {
@@ -57,17 +60,17 @@ export interface PromoCardProps {
 }
 
 export interface PreFooterProps {
-  title: string
-  cta?: Link
+  title: string;
+  cta?: Link;
 }
 
 export interface Navigation {
-  title: string
-  links: Link[]
+  title: string;
+  links: Link[];
 }
 
-export interface FooterProps{
-  title: string
-  description: string
-  navigation: Navigation[]
+export interface FooterProps {
+  title: string;
+  description: string;
+  navigation: Navigation[];
 }

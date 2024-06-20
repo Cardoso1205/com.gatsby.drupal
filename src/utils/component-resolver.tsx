@@ -89,7 +89,7 @@ const ParagraphPromoCard: FC<any> = ({ entity }) => {
 
 const ParagraphPreFooter: FC<any> = ({ entity }) => {
   return (
-    <Wrapper>
+    <Wrapper key={entity.uuid}>
       <PreFooter
         title={entity.fieldTitle}
         cta={{
