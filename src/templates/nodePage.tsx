@@ -5,10 +5,7 @@ import { componentResolver } from "../utils/component-resolver";
 
 const NodePage: FC<any> = ({ data: drupal }) => {
   const data = drupal.drupal.nodeById;
-  // console.log("data", data);
-
   const components = componentResolver(data.fieldComponents);
-  console.log("components", components);
 
   return <Layout>{components}</Layout>;
 };

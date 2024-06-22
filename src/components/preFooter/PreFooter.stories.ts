@@ -13,7 +13,7 @@ export const PreFooterComponent: Story = {
   args: {
     title: 'Explore the world with My Dream place',
     cta: {
-      to: '',
+      to: '/',
       label: 'Discover new places and experiences'
     }
   },

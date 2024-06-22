@@ -30,6 +30,19 @@ export const ParagraphInput = graphql`
   }
 `;
 
+export const ParagraphButton = graphql`
+  fragment ParagraphButton on Drupal_ParagraphButton {
+    fieldCta {
+      title
+      url {
+        path
+      }
+    }
+    fieldTarget
+    fieldVariant
+  }
+`;
+
 export const ParagraphHero = graphql`
   fragment ParagraphHero on Drupal_ParagraphHero {
     uuid
@@ -51,19 +64,6 @@ export const ParagraphHero = graphql`
         ...ParagraphButton
       }
     }
-  }
-`;
-
-export const ParagraphButton = graphql`
-  fragment ParagraphButton on Drupal_ParagraphButton {
-    fieldCta {
-      title
-      url {
-        path
-      }
-    }
-    fieldTarget
-    fieldVariant
   }
 `;
 
