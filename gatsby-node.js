@@ -47,7 +47,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `).then((result) => {
-    const entities = result.data.drupal.nodeQuery.entities;
     const mainNavigationLinks = result.data.drupal.mainNavigation.links.map(
       (link) => {
         return {
@@ -83,6 +82,8 @@ exports.createPages = async ({ graphql, actions }) => {
         navigation: footerLinks,
       },
     });
+
+    const entities = result.data.drupal.nodeQuery.entities;
 
     entities.forEach((entity) => {
       actions.createPage({

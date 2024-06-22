@@ -1,9 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
 const dotenv = require("dotenv");
 
-// dotenv.config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// });
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -30,9 +30,9 @@ const config: GatsbyConfig = {
       options: {
         typeName: "Drupal",
         fieldName: "drupal",
-        url: `https://dev-www-gatsby-backend.pantheonsite.io/graphql`,
+        url: `${process.env.GATSBY_DRUPAL_URL}/graphql`,
         headers: {
-          Authorization: `Basic ${Buffer.from("admin:Cardozo1406@").toString("base64")}`,
+          Authorization: `Basic ${Buffer.from(`${process.env.GATSBY_DRUPAL_USERNAME}:${process.env.GATSBY_DRUPAL_PASSWORD}`).toString("base64")}`,
         },
       },
     },
