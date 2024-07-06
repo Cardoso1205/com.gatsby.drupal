@@ -86,7 +86,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const entities = result.data.drupal.nodeQuery.entities;
 
     entities.forEach((entity) => {
-      const pathname = entity.entityUrl.path ? "/" : entity.entityUrl.path;
+      const pathname =
+        entity.entityUrl.path === "/home" ? "/" : entity.entityUrl.path;
 
       actions.createPage({
         path: pathname,
